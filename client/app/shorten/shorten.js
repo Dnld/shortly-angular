@@ -4,8 +4,10 @@ angular.module('shortly.shorten', [])
   // Your code here
   $scope.link = {};
 
-  $scope.addLink = function() {
-    Links.addLink($scope.link)
+  $scope.addLink = function(link) {
+    console.log('____________________________ userlink');
+    console.log(link);
+    Links.addLink(linkink)
     .then(function(resp) {
       // add to DOM/LinkView
       return resp;
