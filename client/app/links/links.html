@@ -1,14 +1,15 @@
 <div id='links'>
-  <div ng-repeat="link in data.links">
+  <input type="text" ng-model="searchFilter" class="search">
+  <div ng-repeat="link in data.links | orderBy : '-visits' | filter : searchFilter">
     <div class="link">
+      <div class="visits">
+        <span class="count">{{link.visits}}</span> Visits
+      </div>
       <img src="./assets/redirect_icon.png">
       <div class="info">
         <div class="title">{{link.title}}</div>
         <div class="original">{{link.url}}</div>
-        <a href="{{link.baseUrl + link.code}}">{{link.baseUrl + link.code}}</a>
-      </div>
-      <div class="visits">
-        <span class="count">{{link.visit}}</span> Visits
+        <a href="{{link.base_url + '/api/links/' + link.code}}">{{link.base_url + '/' + link.code}}</a>
       </div>
     </div>
   </div>
